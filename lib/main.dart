@@ -1,5 +1,5 @@
-import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
+import 'package:full_e_commerce_application/views/hello_view.dart';
 import 'package:full_e_commerce_application/views/login_view.dart';
 import 'package:full_e_commerce_application/views/on_boarding/on_boarding_view.dart';
 
@@ -33,8 +33,10 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         LoginView.id : (context)=> const LoginView(),
+        SignUpView.id : (context) => const SignUpView(),
+        HelloView.id : (context) => const HelloView(),
       },
-      home: const SignUpView(),
+      home: const OnBoardingView(),
     );
   }
 }

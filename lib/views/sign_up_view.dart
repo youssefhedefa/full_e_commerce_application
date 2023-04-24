@@ -5,6 +5,7 @@ import 'package:full_e_commerce_application/widgets/custom_text_form_field.dart'
 
 class SignUpView extends StatefulWidget {
   const SignUpView({Key? key}) : super(key: key);
+  static String id = 'sign up view';
 
   @override
   State<SignUpView> createState() => _SignUpViewState();

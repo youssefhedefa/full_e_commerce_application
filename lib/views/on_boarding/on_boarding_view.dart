@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:full_e_commerce_application/views/hello_view.dart';
 import 'package:full_e_commerce_application/views/login_view.dart';
 import 'package:full_e_commerce_application/views/on_boarding/onboarding_cubit.dart';
 import 'package:full_e_commerce_application/views/on_boarding/onboarding_states.dart';
@@ -69,7 +70,7 @@ class OnBoardingView extends StatelessWidget {
                             onPressed: () {
                               if(cubit.isBoardingLast == true)
                               {
-                                Navigator.pushReplacementNamed(context, LoginView.id);
+                                Navigator.pushReplacementNamed(context, HelloView.id);
                               }
                               else
                               {
