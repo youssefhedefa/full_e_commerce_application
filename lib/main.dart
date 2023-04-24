@@ -4,6 +4,7 @@ import 'package:full_e_commerce_application/views/login_view.dart';
 import 'package:full_e_commerce_application/views/on_boarding/on_boarding_view.dart';
 
 import 'constants/primary_color.dart';
+import 'views/sign_up_view.dart';
 
 void main() {
   //runApp(DevicePreview(builder: (context)=> const MyApp() ));
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
       routes: {
         LoginView.id : (context)=> const LoginView(),
       },
-      home: const LoginView(),
+      home: const SignUpView(),
     );
   }
 }

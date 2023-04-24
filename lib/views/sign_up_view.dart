@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:full_e_commerce_application/widgets/custom_text.dart';
 import 'package:full_e_commerce_application/widgets/custom_text_form_field.dart';
-import '../widgets/custom_text.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({Key? key}) : super(key: key);
-  static String id = 'login view';
+class SignUpView extends StatefulWidget {
+  const SignUpView({Key? key}) : super(key: key);
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<SignUpView> createState() => _SignUpViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _SignUpViewState extends State<SignUpView> {
   bool isVisible = true;
+
   IconData passwordVisible = FontAwesomeIcons.eyeSlash;
+
   IconData passwordUnVisible = FontAwesomeIcons.eye;
 
   @override
@@ -27,7 +28,6 @@ class _LoginViewState extends State<LoginView> {
           height: screenHeight,
           width: screenWidth,
           child: Padding(
-            //56.0/868
             padding: EdgeInsets.only(
                 top: screenHeight * (0.065), left: 24.0, right: 24.0),
             child: Column(
@@ -36,14 +36,14 @@ class _LoginViewState extends State<LoginView> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 CustomText(
-                  text: 'W e l c o m e !',
+                  text: 'Hi !',
                   color: Colors.black.withOpacity(0.8),
                   fontSize: 46,
                   fontWeight: FontWeight.w800,
                 ),
                 const Spacer(),
                 const CustomText(
-                  text: 'Sign in to continue',
+                  text: 'Create a new account',
                   color: Color.fromRGBO(53, 65, 176, 0.8),
                   fontSize: 30,
                   fontWeight: FontWeight.w500,
@@ -52,15 +52,23 @@ class _LoginViewState extends State<LoginView> {
                 Padding(
                   padding: EdgeInsets.only(top: screenHeight * (60 / 868)),
                   child: const CustomTextFormField(
-                    keyboardType: TextInputType.emailAddress,
+                    keyboardType: TextInputType.text,
                     decoration: InputDecoration(
-                      suffixIcon: Icon(Icons.mail_outline),
+                      suffixIcon: Icon(Icons.account_circle_outlined),
                     ),
                   ),
                 ),
-                const Spacer(),
                 SizedBox(
-                  height: screenHeight * (80 / 868),
+                  height: screenHeight * (60 / 868),
+                ),
+                const CustomTextFormField(
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                    suffixIcon: Icon(Icons.mail_outline),
+                  ),
+                ),
+                SizedBox(
+                  height: screenHeight * (60 / 868),
                 ),
                 CustomTextFormField(
                   keyboardType: TextInputType.visiblePassword,
@@ -80,17 +88,17 @@ class _LoginViewState extends State<LoginView> {
                       },
                       icon: isVisible == true
                           ? Icon(
-                              passwordVisible,
-                            )
+                        passwordVisible,
+                      )
                           : Icon(
-                              passwordUnVisible,
-                            ),
+                        passwordUnVisible,
+                      ),
                     ),
                   ),
                 ),
                 const Spacer(),
                 Padding(
-                  padding: EdgeInsets.only(top: screenHeight * (50 / 868)),
+                  padding: EdgeInsets.only(top: screenHeight * (30 / 868),bottom: 30,),
                   child: Center(
                     child: Container(
                       width: screenWidth / 1.2,
@@ -102,23 +110,12 @@ class _LoginViewState extends State<LoginView> {
                       child: TextButton(
                         onPressed: () {},
                         child: const CustomText(
-                          text: 'L O G I N',
+                          text: 'S I G N  U P',
                           color: Colors.white,
                           fontSize: 20,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
-                    ),
-                  ),
-                ),
-                Center(
-                  child: TextButton(
-                    onPressed: () {},
-                    child: const CustomText(
-                      text: 'Forgot Password ?',
-                      color: Color.fromRGBO(53, 65, 176, 0.9),
-                      fontSize: 20,
-                      fontWeight: FontWeight.w400,
                     ),
                   ),
                 ),
@@ -185,14 +182,14 @@ class _LoginViewState extends State<LoginView> {
                   child: Row(
                     children: [
                       const CustomText(
-                        text: 'Don\'t have an account ?  ',
+                        text: 'Already have an account ? ',
                         fontSize: 16,
                         color: Colors.black,
                       ),
                       TextButton(
                         onPressed: () {},
                         child: const CustomText(
-                          text: 'Sign up',
+                          text: 'Sign in',
                           fontSize: 16,
                         ),
                       ),
