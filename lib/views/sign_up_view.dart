@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:full_e_commerce_application/widgets/CustomButton.dart';
 import 'package:full_e_commerce_application/widgets/custom_text.dart';
 import 'package:full_e_commerce_application/widgets/custom_text_form_field.dart';
 
@@ -98,28 +99,7 @@ class _SignUpViewState extends State<SignUpView> {
                   ),
                 ),
                 const Spacer(),
-                Padding(
-                  padding: EdgeInsets.only(top: screenHeight * (30 / 868),bottom: 30,),
-                  child: Center(
-                    child: Container(
-                      width: screenWidth / 1.2,
-                      //height: 60,
-                      decoration: BoxDecoration(
-                        color: const Color.fromRGBO(53, 65, 176, 0.9),
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                      child: TextButton(
-                        onPressed: () {},
-                        child: const CustomText(
-                          text: 'S I G N  U P',
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                CustomButton(screenHeight: screenHeight, screenWidth: screenWidth, label: 'S I G N  U P'),
                 const Spacer(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

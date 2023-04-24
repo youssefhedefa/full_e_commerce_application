@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:full_e_commerce_application/views/hello_view.dart';
-import 'package:full_e_commerce_application/views/login_view.dart';
 import 'package:full_e_commerce_application/views/on_boarding/onboarding_cubit.dart';
 import 'package:full_e_commerce_application/views/on_boarding/onboarding_states.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -28,7 +27,7 @@ class OnBoardingView extends StatelessWidget {
                 actions: [
                   TextButton(
                       onPressed: (){
-                        Navigator.pushReplacementNamed(context, LoginView.id);
+                        Navigator.pushReplacementNamed(context, HelloView.id);
                       },
                       child: const Text(
                           'Skip',
