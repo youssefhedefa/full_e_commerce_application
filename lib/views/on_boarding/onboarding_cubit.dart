@@ -26,18 +26,15 @@ class OnBoardingCubit extends Cubit<OnBoardingStates>
       'choose from a wide range or deliver options eshop pickup point',
     ),
   ];
-  int panelIndex = 0;
+
   PageController pageController = PageController();
 
-  void changeIndex(int index)
-  {
-    panelIndex = index;
-  }
-
   bool isBoardingLast = false;
+
   void changeState(bool state)
   {
     isBoardingLast = state;
+    buttonChanged();
   }
 
   Widget buttonChanged()

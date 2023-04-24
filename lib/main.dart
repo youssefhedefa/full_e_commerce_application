@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:full_e_commerce_application/views/login_view.dart';
 import 'package:full_e_commerce_application/views/on_boarding/on_boarding_view.dart';
@@ -5,7 +6,8 @@ import 'package:full_e_commerce_application/views/on_boarding/on_boarding_view.d
 import 'constants/primary_color.dart';
 
 void main() {
-  runApp(const MyApp());
+  //runApp(DevicePreview(builder: (context)=> const MyApp() ));
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -18,15 +20,20 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'E-Commerce',
-      theme: ThemeData(
+    // builder: DevicePreview.appBuilder,
+      theme: ThemeData
+        (
+        appBarTheme: const AppBarTheme(
+          color: Colors.white,
+        ),
+
        primarySwatch: MyCustomColor(),
         fontFamily: 'Roboto',
-        //primaryColor: MaterialColor(Color.fromRGBO(53, 65, 176, 0.9)),
       ),
       routes: {
         LoginView.id : (context)=> const LoginView(),
       },
-      home: const OnBoardingView(),
+      home: const LoginView(),
     );
   }
 }

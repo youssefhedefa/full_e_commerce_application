@@ -4,8 +4,7 @@ import 'package:full_e_commerce_application/views/login_view.dart';
 import 'package:full_e_commerce_application/views/on_boarding/onboarding_cubit.dart';
 import 'package:full_e_commerce_application/views/on_boarding/onboarding_states.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
-import '../../widgets/custom_panel.dart';
+import '../../widgets/custom_page_builder.dart';
 
 
 
@@ -23,33 +22,31 @@ class OnBoardingView extends StatelessWidget {
           {
             var cubit = BlocProvider.of<OnBoardingCubit>(context);
             return Scaffold(
+              appBar: AppBar(
+                elevation: 0,
+                actions: [
+                  TextButton(
+                      onPressed: (){
+                        Navigator.pushReplacementNamed(context, LoginView.id);
+                      },
+                      child: const Text(
+                          'Skip',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Color.fromRGBO(53, 65, 176, 1),
+                        ),
+                      ),),
+                ],
+              ),
               body: Container(
-                padding: const EdgeInsets.all(24.0),
+                padding: const EdgeInsets.only(left: 24.0,right: 24.0,),
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
                 color: backGroundColor,
                 child: Column(
                   children: [
-                    Expanded(
-                      child: PageView.builder(
-                        onPageChanged: (index)
-                        {
-                          if(index == cubit.panels.length-1)
-                          {
-                            cubit.changeState(true);
-                          }
-                          else
-                          {
-                            cubit.changeState(false);
-                          }
-                        },
-                        physics: const BouncingScrollPhysics(),
-                        controller: cubit.pageController,
-                        itemBuilder: (context, index) {
-                          return CustomPanel(panel: cubit.panels[index]);
-                        },
-                        itemCount: cubit.panels.length,
-                      ),
+                    const Expanded(
+                      child: CustomPageBuilder(),
                     ),
                     const SizedBox(
                       height: 30,
@@ -70,9 +67,9 @@ class OnBoardingView extends StatelessWidget {
                           const Spacer(),
                           TextButton(
                             onPressed: () {
-                              if(cubit.panelIndex == 2)
+                              if(cubit.isBoardingLast == true)
                               {
-                                Navigator.pushNamed(context, LoginView.id);
+                                Navigator.pushReplacementNamed(context, LoginView.id);
                               }
                               else
                               {
@@ -96,7 +93,3 @@ class OnBoardingView extends StatelessWidget {
     );
   }
 }
-
-
-
-
