@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:full_e_commerce_application/views/login_view.dart';
+import 'package:full_e_commerce_application/views/log_in/login_view.dart';
 import 'package:full_e_commerce_application/views/sign_up_view.dart';
 import 'package:full_e_commerce_application/widgets/custom_text.dart';
 import '../widgets/CustomButton.dart';

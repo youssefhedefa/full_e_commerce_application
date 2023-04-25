@@ -16,7 +16,6 @@ class _SignUpViewState extends State<SignUpView> {
   bool isVisible = true;
 
   IconData passwordVisible = FontAwesomeIcons.eyeSlash;
-
   IconData passwordUnVisible = FontAwesomeIcons.eye;
 
   @override
@@ -56,6 +55,7 @@ class _SignUpViewState extends State<SignUpView> {
                   child: const CustomTextFormField(
                     keyboardType: TextInputType.text,
                     decoration: InputDecoration(
+                      hintText: 'User name',
                       suffixIcon: Icon(Icons.account_circle_outlined),
                     ),
                   ),
@@ -67,6 +67,7 @@ class _SignUpViewState extends State<SignUpView> {
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     suffixIcon: Icon(Icons.mail_outline),
+                    hintText: 'E-mail',
                   ),
                 ),
                 SizedBox(
@@ -76,6 +77,7 @@ class _SignUpViewState extends State<SignUpView> {
                   keyboardType: TextInputType.visiblePassword,
                   obscureText: isVisible,
                   decoration: InputDecoration(
+                    hintText: 'Password',
                     suffixIcon: IconButton(
                       onPressed: () {
                         if (isVisible == true) {
@@ -90,16 +92,19 @@ class _SignUpViewState extends State<SignUpView> {
                       },
                       icon: isVisible == true
                           ? Icon(
-                        passwordVisible,
-                      )
+                              passwordVisible,
+                            )
                           : Icon(
-                        passwordUnVisible,
-                      ),
+                              passwordUnVisible,
+                            ),
                     ),
                   ),
                 ),
                 const Spacer(),
-                CustomButton(screenHeight: screenHeight, screenWidth: screenWidth, label: 'S I G N  U P'),
+                CustomButton(
+                    screenHeight: screenHeight,
+                    screenWidth: screenWidth,
+                    label: 'S I G N  U P'),
                 const Spacer(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

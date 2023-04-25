@@ -16,8 +16,7 @@ class OnBoardingView extends StatelessWidget {
     Color backGroundColor = const Color.fromRGBO(255, 255, 255, 1);
     return BlocProvider(
       create: (context)=>OnBoardingCubit(),
-        child: BlocConsumer<OnBoardingCubit,OnBoardingStates>(
-          listener: (context,state){},
+        child: BlocBuilder<OnBoardingCubit,OnBoardingStates>(
           builder: (context,state)
           {
             var cubit = BlocProvider.of<OnBoardingCubit>(context);
