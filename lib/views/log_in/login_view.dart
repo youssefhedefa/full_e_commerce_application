@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:full_e_commerce_application/models/log_in_model.dart';
 import 'package:full_e_commerce_application/views/log_in/log_in_cubit.dart';
 import 'package:full_e_commerce_application/views/log_in/log_in_states.dart';
-import 'package:full_e_commerce_application/widgets/CustomButton.dart';
 import 'package:full_e_commerce_application/widgets/custom_text_form_field.dart';
 import '../../widgets/custom_text.dart';
 
@@ -21,10 +20,7 @@ class _LoginViewState extends State<LoginView> {
   IconData passwordVisible = FontAwesomeIcons.eyeSlash;
   IconData passwordUnVisible = FontAwesomeIcons.eye;
 
-  TextEditingController eMail = TextEditingController();
-  TextEditingController password = TextEditingController();
 
-  var formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +33,39 @@ class _LoginViewState extends State<LoginView> {
         builder: (context,state)
         {
           var cubit = BlocProvider.of<LogInViewCubit>(context);
+          if(state is LogInViewLoading)
+          {
+            cubit.logInLoading = true;
+          }
+          else
+          {
+            cubit.logInLoading = false;
+            if(state is LogInViewSuccess)
+            {
+              Fluttertoast.showToast(
+                  msg: cubit.logInDataModel!.message ?? 'Done',
+                  toastLength: Toast.LENGTH_LONG,
+                  gravity: ToastGravity.BOTTOM,
+                  timeInSecForIosWeb: 5,
+                  backgroundColor: Colors.green,
+                  textColor: Colors.white,
+                  fontSize: 18.0
+              );
+            }
+            else if(state is LogInViewFailure)
+            {
+              Fluttertoast.showToast(
+                  msg: cubit.logInDataModel!.message ?? 'Failure',
+                  toastLength: Toast.LENGTH_LONG,
+                  gravity: ToastGravity.BOTTOM,
+                  timeInSecForIosWeb: 5,
+                  backgroundColor: Colors.red,
+                  textColor: Colors.white,
+                  fontSize: 18.0
+              );
+
+            }
+          }
           return Scaffold(
             body: SingleChildScrollView(
               child: SizedBox(
@@ -47,7 +76,7 @@ class _LoginViewState extends State<LoginView> {
                   padding: EdgeInsets.only(
                       top: screenHeight * (0.065), left: 24.0, right: 24.0),
                   child: Form(
-                    key: formKey,
+                    key: cubit.formKey,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,7 +104,7 @@ class _LoginViewState extends State<LoginView> {
                               hintText: 'E-mail',
                               suffixIcon: Icon(Icons.mail_outline),
                             ),
-                            controller: eMail,
+                            controller: cubit.eMail,
                             validator: (value)
                             {
                               if(value!.isEmpty)
@@ -116,7 +145,7 @@ class _LoginViewState extends State<LoginView> {
                               ),
                             ),
                           ),
-                          controller: password,
+                          controller: cubit.password,
                           validator: (value)
                           {
                             if(value!.isEmpty)
@@ -127,23 +156,7 @@ class _LoginViewState extends State<LoginView> {
                           },
                         ),
                         const Spacer(),
-                        CustomButton(
-                          screenHeight: screenHeight,
-                          screenWidth: screenWidth,
-                          label: 'L O G I N',
-                          onPressed: ()
-                          {
-                            if(formKey.currentState!.validate())
-                            {
-                              debugPrint(eMail.text);
-                              debugPrint(password.text);
-                              cubit.userLogIn(
-                                eMail: eMail.text,
-                                password: password.text,
-                              );
-                            }
-                          },
-                        ),
+                        cubit.changeLogInButton(screenHeight, screenWidth),
                         Center(
                           child: TextButton(
                             onPressed: () {},

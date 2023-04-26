@@ -12,3 +12,4 @@ class LogInViewFailure extends LogInViewStates{
   LogInViewFailure(this.errMessage);
 
 }
+

@@ -1,3 +1,4 @@
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:full_e_commerce_application/network/remote/dio_helper.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
       title: 'E-Commerce',
       theme: ThemeData
         (
+        //useMaterial3: true,
         appBarTheme: const AppBarTheme(
           color: Colors.white,
         ),
