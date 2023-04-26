@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:full_e_commerce_application/models/log_in_model.dart';
 import 'package:full_e_commerce_application/views/log_in/log_in_cubit.dart';
 import 'package:full_e_commerce_application/views/log_in/log_in_states.dart';
 import 'package:full_e_commerce_application/widgets/CustomButton.dart';
