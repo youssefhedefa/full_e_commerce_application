@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:full_e_commerce_application/network/local/cache_helper.dart';
 import 'package:full_e_commerce_application/views/hello_view.dart';
 import 'package:full_e_commerce_application/views/on_boarding/onboarding_cubit.dart';
 import 'package:full_e_commerce_application/views/on_boarding/onboarding_states.dart';
@@ -10,6 +11,12 @@ import '../../widgets/custom_page_builder.dart';
 
 class OnBoardingView extends StatelessWidget {
   const OnBoardingView({super.key});
+
+  void skipSubmit(BuildContext context)
+  {
+    CacheHelper.setStartingScreen(key: 'is on boarding submitted', value: true);
+    Navigator.pushReplacementNamed(context, HelloView.id);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +33,7 @@ class OnBoardingView extends StatelessWidget {
                 actions: [
                   TextButton(
                       onPressed: (){
-                        Navigator.pushReplacementNamed(context, HelloView.id);
+                        skipSubmit(context);
                       },
                       child: const Text(
                           'Skip',
@@ -68,7 +75,7 @@ class OnBoardingView extends StatelessWidget {
                             onPressed: () {
                               if(cubit.isBoardingLast == true)
                               {
-                                Navigator.pushReplacementNamed(context, HelloView.id);
+                                skipSubmit(context);
                               }
                               else
                               {

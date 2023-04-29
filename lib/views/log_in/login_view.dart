@@ -16,6 +16,7 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
+
   bool isVisible = true;
   IconData passwordVisible = FontAwesomeIcons.eyeSlash;
   IconData passwordUnVisible = FontAwesomeIcons.eye;

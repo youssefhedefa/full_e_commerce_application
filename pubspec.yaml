@@ -35,6 +35,8 @@ dependencies:
   device_preview: ^1.1.0
   dio: ^5.1.1
   fluttertoast: ^8.2.1
+  shared_preferences: ^2.1.0
+
 
 
   flutter:
