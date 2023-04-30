@@ -10,12 +10,34 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:full_e_commerce_application/main.dart';
 import 'package:full_e_commerce_application/network/local/cache_helper.dart';
+import 'package:full_e_commerce_application/views/hello_view.dart';
+import 'package:full_e_commerce_application/views/on_boarding/on_boarding_view.dart';
+import 'package:full_e_commerce_application/views/products_view.dart';
 
 void main() {
-  bool? isOnBoardingSubmitted =  CacheHelper.getStartingScreen(key: 'is on boarding submitted');
+  //bool? isOnBoardingSubmitted =  CacheHelper.getStartingScreen(key: 'is on boarding submitted');
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp(isOnBoardingSubmitted: isOnBoardingSubmitted!,));
+    bool? isOnBoardingSubmitted = CacheHelper.getStartingScreen(key: 'is on boarding submitted');
+    String? token = CacheHelper.getToken(key: 'token');
+    Widget? startingView;
+    if(isOnBoardingSubmitted != null && isOnBoardingSubmitted == true)
+    {
+      if(token == null)
+      {
+        startingView = const HelloView();
+      }
+      else
+      {
+        startingView = const ProductsView();
+      }
+    }
+    else
+    {
+      startingView = const OnBoardingView();
+    }
+
+    await tester.pumpWidget(MyApp(startingView: startingView,));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

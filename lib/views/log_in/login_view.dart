@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:full_e_commerce_application/network/local/cache_helper.dart';
 import 'package:full_e_commerce_application/views/log_in/log_in_cubit.dart';
 import 'package:full_e_commerce_application/views/log_in/log_in_states.dart';
+import 'package:full_e_commerce_application/views/products_view.dart';
 import 'package:full_e_commerce_application/widgets/custom_text_form_field.dart';
 import '../../widgets/custom_text.dart';
 
@@ -43,6 +45,12 @@ class _LoginViewState extends State<LoginView> {
             cubit.logInLoading = false;
             if(state is LogInViewSuccess)
             {
+              //print(cubit.logInDataModel!.data!.token.toString());
+              CacheHelper.setToken(key: 'token', value: cubit.logInDataModel!.data!.token.toString()).then((value)
+              {
+                Navigator.pushReplacementNamed(context, ProductsView.id);
+              });
+              //print(CacheHelper.getToken(key: 'token'));
               Fluttertoast.showToast(
                   msg: cubit.logInDataModel!.message ?? 'Done',
                   toastLength: Toast.LENGTH_LONG,
@@ -64,7 +72,7 @@ class _LoginViewState extends State<LoginView> {
                   textColor: Colors.white,
                   fontSize: 18.0
               );
-
+              state = LogInViewInitialize();
             }
           }
           return Scaffold(
@@ -114,6 +122,10 @@ class _LoginViewState extends State<LoginView> {
                               }
                               return null;
                             },
+                            onChanged: (value)
+                            {
+                              state = LogInViewInitialize();
+                            },
                           ),
                         ),
                         const Spacer(),
@@ -154,6 +166,10 @@ class _LoginViewState extends State<LoginView> {
                               return 'This field is required';
                             }
                             return null;
+                          },
+                          onChanged: (value)
+                          {
+                            state = LogInViewInitialize();
                           },
                         ),
                         const Spacer(),
