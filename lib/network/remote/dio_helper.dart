@@ -29,7 +29,7 @@ class DioHelper {
     String? lang,
   }) async {
     dio!.options.headers = {
-      'lang': lang ?? 'en',
+      'lang': lang ?? 'ar',
     };
     return await dio!.post(
       url,

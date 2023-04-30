@@ -72,7 +72,6 @@ class _LoginViewState extends State<LoginView> {
                   textColor: Colors.white,
                   fontSize: 18.0
               );
-              state = LogInViewInitialize();
             }
           }
           return Scaffold(
@@ -122,10 +121,6 @@ class _LoginViewState extends State<LoginView> {
                               }
                               return null;
                             },
-                            onChanged: (value)
-                            {
-                              state = LogInViewInitialize();
-                            },
                           ),
                         ),
                         const Spacer(),
@@ -166,10 +161,6 @@ class _LoginViewState extends State<LoginView> {
                               return 'This field is required';
                             }
                             return null;
-                          },
-                          onChanged: (value)
-                          {
-                            state = LogInViewInitialize();
                           },
                         ),
                         const Spacer(),

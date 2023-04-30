@@ -18,8 +18,8 @@ class CustomNewIn extends StatelessWidget {
             child: Stack(
               children: [
                 Container(
-                  width: MediaQuery.of(context).size.width - 170,
-                  height: 340,
+                  width: 270,
+                  height: 350,
                   decoration: BoxDecoration(
                     color: Colors.orange,
                     borderRadius: BorderRadius.circular(30),
@@ -28,7 +28,7 @@ class CustomNewIn extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 240.0),
                   child: Container(
-                    width: MediaQuery.of(context).size.width - 170,
+                    width: 270,
                     height: 100,
                     decoration: BoxDecoration(
                       color: const Color.fromRGBO(250, 250, 250, 1),
@@ -60,8 +60,8 @@ class CustomNewIn extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(
-                    left: MediaQuery.of(context).size.width - 236,
+                  padding:const EdgeInsets.only(
+                    left: 200,
                     top: 10,
                   ),
                   child: IconButton(

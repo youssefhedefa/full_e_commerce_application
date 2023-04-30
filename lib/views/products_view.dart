@@ -47,52 +47,58 @@ class ProductsView extends StatelessWidget {
           ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 16.0,right: 16.0,top:14),
-        child: Column(
-          children: [
-            Row(
+      body: SingleChildScrollView(
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height-97,
+          width: MediaQuery.of(context).size.width,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 16.0,right: 16.0,top:14),
+            child: Column(
               children: [
-                const CustomText(
-                    text: 'Categories',
-                  fontSize: 40,
-                  color: Colors.black,
-                ),
-                const Spacer(),
-                IconButton(
-                  onPressed: (){},
-                  icon:const Icon(Icons.more_horiz,
-                    color: Colors.deepOrangeAccent,
-                    size: 38,
-                  ),
-                ),
-              ],
-            ),
-            const Spacer(),
-            const CustomCategories(),
-            Row(
-              children: [
-                const CustomText(
-                  text: 'New In',
-                  fontSize: 40,
-                  color: Colors.black,
-                ),
-                const Spacer(),
-                TextButton(onPressed: (){},
-                    child: const Text(
-                      'see more',
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 24,
+                Row(
+                  children: [
+                    const CustomText(
+                        text: 'Categories',
+                      fontSize: 40,
+                      color: Colors.black,
+                    ),
+                    const Spacer(),
+                    IconButton(
+                      onPressed: (){},
+                      icon:const Icon(Icons.more_horiz,
+                        color: Colors.deepOrangeAccent,
+                        size: 38,
                       ),
                     ),
+                  ],
                 ),
+                const Spacer(),
+                const CustomCategories(),
+                Row(
+                  children: [
+                    const CustomText(
+                      text: 'New In',
+                      fontSize: 40,
+                      color: Colors.black,
+                    ),
+                    const Spacer(),
+                    TextButton(onPressed: (){},
+                        child: const Text(
+                          'see more',
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 24,
+                          ),
+                        ),
+                    ),
+                  ],
+                ),
+                const Spacer(),
+                const CustomNewIn(),
+                const CustomSearchButton(),
               ],
             ),
-            const Spacer(),
-            const CustomNewIn(),
-            const CustomSearchButton(),
-          ],
+          ),
         ),
       ),
     );

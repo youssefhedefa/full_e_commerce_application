@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:full_e_commerce_application/network/remote/dio_helper.dart';
 
 import '../constants/primary_color.dart';
 
@@ -17,7 +18,20 @@ class CustomSearchButton extends StatelessWidget {
           color: MyCustomColor.defaultColor,
         ),
         child: TextButton(
-          onPressed: (){},
+          onPressed: (){
+            DioHelper.getData(
+                url: 'home',
+                query:{}
+            ).then((value) {
+              //print(value.data.toString());
+              //print(value.data['data']['banners'].length().toString());
+              print(value.data['data']['products'].length().toString());
+
+            }).catchError(
+                    (err)
+                {print(err.toString());}
+            );
+          },
           child: Row(
             children:  const [
               Padding(

@@ -19,11 +19,11 @@ void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     bool? isOnBoardingSubmitted = CacheHelper.getStartingScreen(key: 'is on boarding submitted');
-    String? token = CacheHelper.getToken(key: 'token');
+    String? token = CacheHelper.getToken(key: 'token')??'';
     Widget? startingView;
     if(isOnBoardingSubmitted != null && isOnBoardingSubmitted == true)
     {
-      if(token == null)
+      if(token == '')
       {
         startingView = const HelloView();
       }

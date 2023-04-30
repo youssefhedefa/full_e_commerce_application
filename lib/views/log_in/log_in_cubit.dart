@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:full_e_commerce_application/network/end_points.dart';
 import 'package:full_e_commerce_application/network/remote/dio_helper.dart';
@@ -24,7 +23,11 @@ class LogInViewCubit extends Cubit<LogInViewStates> {
   {
     if(logInLoading == true)
     {
-      return const Center(child: CircularProgressIndicator(color: Color.fromRGBO(53, 65, 176, 0.9),),);
+      return const Center(
+        child: CircularProgressIndicator(
+          color: Color.fromRGBO(53, 65, 176, 0.9),
+        ),
+      );
     }
     else
     {
@@ -67,10 +70,9 @@ class LogInViewCubit extends Cubit<LogInViewStates> {
       logInDataModel = LogInDataModel.fromJson(value.data);
       print(logInDataModel!.data!.token);
 
-
     }).catchError((error) {
       emit(LogInViewFailure(error.toString()));
-      print(error);
+      print(error.toString());
     });
   }
 

@@ -16,11 +16,11 @@ void main() async {
 
 
   bool? isOnBoardingSubmitted = CacheHelper.getStartingScreen(key: 'is on boarding submitted');
-  String? token = CacheHelper.getToken(key: 'token');
+  String? token = CacheHelper.getToken(key: 'token')??'';
   Widget? startingView;
   if(isOnBoardingSubmitted != null && isOnBoardingSubmitted == true)
   {
-    if(token == null)
+    if(token == '')
     {
       startingView = const HelloView();
     }
