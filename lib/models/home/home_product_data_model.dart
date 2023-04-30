@@ -1,23 +1,18 @@
-import 'home_banners_model.dart';
-import 'home_products_model.dart';
+class HomeDataModel {
+  List<dynamic> banners = [];
+  List<dynamic> products = [];
 
-class HomeProductDataModel {
+  HomeDataModel.fromJson(Map<String, dynamic> jsonData) {
+    jsonData['banners'].forEach(
+      (banner) {
+        banners.add(banner);
+      },
+    );
 
-  List<HomeBannersModel> banners = [];
-  List<HomeProductsModel> products = [];
-
-
-  HomeProductDataModel.fromJson(Map<String,dynamic> jsonData)
-  {
-    jsonData['banners'].forEach((banner)
-    {
-      banners.add(banner);
-    });
-
-    jsonData['products'].forEach((product)
-    {
-      products.add(product);
-    });
-
+    jsonData['products'].forEach(
+      (product) {
+        products.add(product);
+      },
+    );
   }
 }

@@ -5,7 +5,7 @@ import 'package:full_e_commerce_application/network/remote/dio_helper.dart';
 import 'package:full_e_commerce_application/views/hello_view.dart';
 import 'package:full_e_commerce_application/views/log_in/login_view.dart';
 import 'package:full_e_commerce_application/views/on_boarding/on_boarding_view.dart';
-import 'package:full_e_commerce_application/views/products_view.dart';
+import 'package:full_e_commerce_application/views/home/home_view.dart';
 import 'bloc_observer.dart';
 import 'constants/primary_color.dart';
 import 'views/sign_up_view.dart';
@@ -26,7 +26,7 @@ void main() async {
     }
     else
     {
-      startingView = const ProductsView();
+      startingView = const HomeView();
     }
   }
   else
@@ -63,7 +63,7 @@ class MyApp extends StatelessWidget {
         LoginView.id : (context)=> const LoginView(),
         SignUpView.id : (context) => const SignUpView(),
         HelloView.id : (context) => const HelloView(),
-        ProductsView.id : (context)=> const ProductsView(),
+        HomeView.id : (context)=> const HomeView(),
       },
       home: startingView,
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:full_e_commerce_application/models/home/home_product_view_model.dart';
 import 'package:full_e_commerce_application/network/remote/dio_helper.dart';
 
 import '../constants/primary_color.dart';
@@ -24,8 +25,11 @@ class CustomSearchButton extends StatelessWidget {
                 query:{}
             ).then((value) {
               //print(value.data.toString());
-              //print(value.data['data']['banners'].length().toString());
-              print(value.data['data']['products'].length().toString());
+              HomeViewModel homeProductsViewModel = HomeViewModel.fromJson(value.data);
+              print(homeProductsViewModel.status.toString());
+              print(homeProductsViewModel.data!.banners[2]['id'].toString());
+              //print(value.data['data']['banners'][0]['image']);
+              //print(value.data['data']['products'].length().toString());
 
             }).catchError(
                     (err)

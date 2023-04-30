@@ -5,7 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:full_e_commerce_application/network/local/cache_helper.dart';
 import 'package:full_e_commerce_application/views/log_in/log_in_cubit.dart';
 import 'package:full_e_commerce_application/views/log_in/log_in_states.dart';
-import 'package:full_e_commerce_application/views/products_view.dart';
+import 'package:full_e_commerce_application/views/home/home_view.dart';
 import 'package:full_e_commerce_application/widgets/custom_text_form_field.dart';
 import '../../widgets/custom_text.dart';
 
@@ -48,7 +48,7 @@ class _LoginViewState extends State<LoginView> {
               //print(cubit.logInDataModel!.data!.token.toString());
               CacheHelper.setToken(key: 'token', value: cubit.logInDataModel!.data!.token.toString()).then((value)
               {
-                Navigator.pushReplacementNamed(context, ProductsView.id);
+                Navigator.pushReplacementNamed(context, HomeView.id);
               });
               //print(CacheHelper.getToken(key: 'token'));
               Fluttertoast.showToast(

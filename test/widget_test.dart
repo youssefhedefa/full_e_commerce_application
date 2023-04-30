@@ -12,7 +12,7 @@ import 'package:full_e_commerce_application/main.dart';
 import 'package:full_e_commerce_application/network/local/cache_helper.dart';
 import 'package:full_e_commerce_application/views/hello_view.dart';
 import 'package:full_e_commerce_application/views/on_boarding/on_boarding_view.dart';
-import 'package:full_e_commerce_application/views/products_view.dart';
+import 'package:full_e_commerce_application/views/home/home_view.dart';
 
 void main() {
   //bool? isOnBoardingSubmitted =  CacheHelper.getStartingScreen(key: 'is on boarding submitted');
@@ -29,7 +29,7 @@ void main() {
       }
       else
       {
-        startingView = const ProductsView();
+        startingView = const HomeView();
       }
     }
     else
