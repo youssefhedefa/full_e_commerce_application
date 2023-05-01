@@ -15,7 +15,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context)=>HomeViewCubit(),
+      create: (BuildContext context) =>HomeViewCubit()..loadCategories(),
       child: BlocBuilder<HomeViewCubit,HomeViewStates>(
         builder: (context,state)
         {
@@ -60,7 +60,7 @@ class HomeView extends StatelessWidget {
             ),
             body: SingleChildScrollView(
               child: SizedBox(
-                height: MediaQuery.of(context).size.height-97,
+                height: MediaQuery.of(context).size.height-86,
                 width: MediaQuery.of(context).size.width,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 16.0,right: 16.0,top:14),
