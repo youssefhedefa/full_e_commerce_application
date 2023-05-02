@@ -22,7 +22,7 @@ class CustomCategories extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.only(top: 18, bottom: 22.0),
             child: SizedBox(
-              height: 151,
+              height: 180,
               child: ListView.builder(
                 clipBehavior: Clip.none,
                 itemBuilder: (context, index) => Padding(
@@ -30,33 +30,38 @@ class CustomCategories extends StatelessWidget {
                     left: 10.0,
                     right: 10,
                   ),
-                  child: Column(
-                    children: [
-                      CircleAvatar(
-                        backgroundColor: color[index % 3],
-                        radius: 56,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.transparent,
-                            borderRadius: BorderRadius.circular(56),
-                            image: DecorationImage(
-                              fit: BoxFit.contain,
-                              image: NetworkImage(
-                                model[index]['image'].toString(),
+                  child: SizedBox(
+                    height: 180,
+                    width: 130,
+                    child: Column(
+                      children: [
+                        CircleAvatar(
+                          backgroundColor: color[index % 3],
+                          radius: 56,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.transparent,
+                              borderRadius: BorderRadius.circular(56),
+                              image: DecorationImage(
+                                fit: BoxFit.contain,
+                                image: NetworkImage(
+                                  model[index]['image'].toString(),
+                                ),
                               ),
                             ),
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 16,
-                      ),
-                      CustomText(
-                        text: model[index]['name'].toString(),
-                        fontSize: 20,
-                        color: Colors.black.withOpacity(0.8),
-                      ),
-                    ],
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        CustomText(
+                          text: model[index]['name'].toString(),
+                          fontSize: 20,
+                          color: Colors.black.withOpacity(0.8),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 itemCount: model.length,

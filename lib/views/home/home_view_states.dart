@@ -13,3 +13,9 @@ class HomeCategoriesFailure extends HomeViewStates {
 
 
 class HomeNewInLoading extends HomeViewStates {}
+class HomeNewInSuccess extends HomeViewStates {}
+class HomeNewInFailure extends HomeViewStates {
+  final String errMessage;
+
+  HomeNewInFailure(this.errMessage);
+}

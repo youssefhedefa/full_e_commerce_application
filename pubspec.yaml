@@ -73,12 +73,15 @@ flutter:
   assets:
     - assets/images/
 
-
   fonts:
     - family: Roboto
       fonts:
         - asset: assets/fonts/RobotoCondensed-Regular.ttf
         - asset: assets/fonts/RobotoCondensed-Bold.ttf
+    - family: Roboto_Mono
+      fonts:
+        - asset: assets/fonts/RobotoMono-Regular.ttf
+        - asset: assets/fonts/RobotoMono-SemiBold.ttf
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

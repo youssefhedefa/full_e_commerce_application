@@ -51,13 +51,14 @@ class MyApp extends StatelessWidget {
       title: 'E-Commerce',
       theme: ThemeData
         (
+
         //useMaterial3: true,
         appBarTheme: const AppBarTheme(
           color: Colors.white,
         ),
 
        primarySwatch: MyCustomColor(),
-        fontFamily: 'Roboto',
+        fontFamily: 'Roboto_Mono',
       ),
       routes: {
         LoginView.id : (context)=> const LoginView(),
