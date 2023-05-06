@@ -17,7 +17,6 @@ class CustomCategories extends StatelessWidget {
         builder: (context, state) {
           var cubit = BlocProvider.of<HomeViewCubit>(context);
           var model = cubit.categoriesModel!.data!.data;
-          var color = colorList;
 
           return Padding(
             padding: const EdgeInsets.only(top: 18, bottom: 22.0),
@@ -36,20 +35,8 @@ class CustomCategories extends StatelessWidget {
                     child: Column(
                       children: [
                         CircleAvatar(
-                          backgroundColor: color[index % 3],
                           radius: 56,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: Colors.transparent,
-                              borderRadius: BorderRadius.circular(56),
-                              image: DecorationImage(
-                                fit: BoxFit.contain,
-                                image: NetworkImage(
-                                  model[index]['image'].toString(),
-                                ),
-                              ),
-                            ),
-                          ),
+                          backgroundImage: NetworkImage(model[index]['image'].toString()),
                         ),
                         const SizedBox(
                           height: 16,

@@ -52,9 +52,7 @@ class MyApp extends StatelessWidget {
       title: 'E-Commerce',
       theme: ThemeData
         (
-
-        //useMaterial3: true,
-        appBarTheme: const AppBarTheme(
+          appBarTheme: const AppBarTheme(
           color: Colors.white,
         ),
 
@@ -66,9 +64,10 @@ class MyApp extends StatelessWidget {
         SignUpView.id : (context) => const SignUpView(),
         HelloView.id : (context) => const HelloView(),
         HomeView.id : (context)=> const HomeView(),
+        ProductsView.id : (context)=> const ProductsView(),
       },
-      //home: startingView,
-      home: ProductsView(),
+      home: startingView,
+      //home: ProductsView(),
     );
   }
 }

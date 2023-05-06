@@ -33,8 +33,7 @@ class CustomNewIn extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: colorList[index%3],
                         borderRadius: BorderRadius.circular(30),
-                        image: DecorationImage
-                          (
+                        image: DecorationImage (
                           alignment: Alignment.topCenter,
                           image: NetworkImage(
                               product[index]['image'].toString()),

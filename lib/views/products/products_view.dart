@@ -8,6 +8,7 @@ import '../../widgets/customProductItem.dart';
 
 class ProductsView extends StatelessWidget {
   const ProductsView({Key? key}) : super(key: key);
+  static String id = 'products view';
 
   @override
   Widget build(BuildContext context) {
