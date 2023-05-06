@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 
+
 class DioHelper {
   static Dio? dio;
   static init() {
@@ -17,7 +18,6 @@ class DioHelper {
     required Map<String, dynamic> query,
     String? lang,
     String? token,
-
   }) async {
     dio!.options.headers = {
       'lang': lang ?? 'en',
@@ -31,6 +31,7 @@ class DioHelper {
     );
   }
 
+
   static Future<Response> postData({
     required String url,
     Map<String, dynamic>? query,
@@ -42,7 +43,6 @@ class DioHelper {
       'lang': lang ?? 'en',
       'Content-Type': 'application/json',
       'Authorization': token,
-
     };
     return await dio!.post(
       url,

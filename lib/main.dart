@@ -6,6 +6,7 @@ import 'package:full_e_commerce_application/views/hello_view.dart';
 import 'package:full_e_commerce_application/views/log_in/login_view.dart';
 import 'package:full_e_commerce_application/views/on_boarding/on_boarding_view.dart';
 import 'package:full_e_commerce_application/views/home/home_view.dart';
+import 'package:full_e_commerce_application/views/products/products_view.dart';
 import 'bloc_observer.dart';
 import 'constants/primary_color.dart';
 import 'views/sign_up_view.dart';
@@ -16,7 +17,7 @@ void main() async {
 
 
   bool? isOnBoardingSubmitted = CacheHelper.getStartingScreen(key: 'is on boarding submitted');
-  String? token = CacheHelper.getToken(key: 'token')??'';
+  String? token = CacheHelper.getToken(key: 'token') ?? '';
   Widget? startingView;
   if(isOnBoardingSubmitted != null && isOnBoardingSubmitted == true)
   {
@@ -66,7 +67,8 @@ class MyApp extends StatelessWidget {
         HelloView.id : (context) => const HelloView(),
         HomeView.id : (context)=> const HomeView(),
       },
-      home: startingView,
+      //home: startingView,
+      home: ProductsView(),
     );
   }
 }

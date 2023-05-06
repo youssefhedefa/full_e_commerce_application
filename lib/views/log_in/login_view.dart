@@ -93,7 +93,7 @@ class _LoginViewState extends State<LoginView> {
                         CustomText(
                           text: 'W e l c o m e !',
                           color: Colors.black.withOpacity(0.8),
-                          fontSize: 46,
+                          fontSize: 40,
                           fontWeight: FontWeight.w800,
                         ),
                         const Spacer(),

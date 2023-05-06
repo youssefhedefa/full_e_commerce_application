@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:full_e_commerce_application/constants/model.dart';
+import 'package:full_e_commerce_application/constants/colorList.dart';
 import '../views/home/home_view_cubit.dart';
 import '../views/home/home_view_states.dart';
 import 'custom_text.dart';
